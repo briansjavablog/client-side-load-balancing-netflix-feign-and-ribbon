@@ -1,3 +1,4 @@
+
 package com.briansjavablog.accountidentifierservice.model;
 
 import lombok.Getter;

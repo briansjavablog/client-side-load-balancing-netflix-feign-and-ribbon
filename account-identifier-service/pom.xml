@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.briansjavablog.microservices</groupId>
-	<artifactId>credit-check-service</artifactId>
+	<artifactId>account-identifier-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>creditc-check-service</name>
-	<description>Simple credit checking service</description>
+	<name>account-identifier-service</name>
+	<description>Service generates random ID for account</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -33,11 +33,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
+		</dependency>	
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>

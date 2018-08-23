@@ -2,8 +2,6 @@ package com.briansjavablog.microservices.bankaccountservice.rest;
 
 import java.net.URISyntaxException;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +14,8 @@ import com.briansjavablog.microservices.client.AccountIdentifierServiceClient;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RestController
 @Slf4j
+@RestController
 public class BankAccountController {
 
 	@Autowired
@@ -25,7 +23,7 @@ public class BankAccountController {
 	
 	
 	@PostMapping("/bank-account")
-	public ResponseEntity<AccountIdentifier> createBankAccount(@RequestBody BankAccount bankAccount, HttpServletRequest request) throws URISyntaxException {
+	public ResponseEntity<AccountIdentifier> createBankAccount(@RequestBody BankAccount bankAccount) throws URISyntaxException {
 		
 		log.info("creating bank account {}", bankAccount);
 		

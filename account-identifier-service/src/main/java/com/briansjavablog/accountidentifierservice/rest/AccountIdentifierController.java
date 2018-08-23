@@ -3,8 +3,6 @@ package com.briansjavablog.accountidentifierservice.rest;
 import java.net.URISyntaxException;
 import java.util.Random;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +15,8 @@ import com.briansjavablog.accountidentifierservice.model.EnumAccountType;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RestController
 @Slf4j
+@RestController
 public class AccountIdentifierController {
 
 	@Autowired	
@@ -26,7 +24,7 @@ public class AccountIdentifierController {
 	
 	
 	@GetMapping("/account-identifier/accountType/{accountType}")
-	public ResponseEntity<AccountIdentifier> createAccountIdentifier(@PathVariable("accountType") EnumAccountType accountType, HttpServletRequest request) throws URISyntaxException {
+	public ResponseEntity<AccountIdentifier> createAccountIdentifier(@PathVariable("accountType") EnumAccountType accountType) throws URISyntaxException {
 		
 		log.info("creating Account Identifier for account type [{}]", accountType);
 		

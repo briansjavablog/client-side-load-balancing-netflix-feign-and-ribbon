@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.briansjavablog.microservices.bankaccountservice.model.AccountIdentifier;
 
-@FeignClient(name="account-identifier-service", url = "${account-identifier-service.url}")
-//@RibbonClient(name="account-identifier-service")
+@FeignClient(name="account-identifier-service", configuration=FeignConfiguration.class)
 public interface AccountIdentifierServiceClient {
 	
-	@GetMapping(path = "accountType/{accountType}")
+	@GetMapping(path = "account-identifier/accountType/{accountType}")
 	public AccountIdentifier getAccountIdentifier(@PathVariable("accountType") String accountType);
 	
 }
