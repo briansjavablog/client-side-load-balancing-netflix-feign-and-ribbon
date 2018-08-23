@@ -1,1 +1,1 @@
-# Building a REST client with Feign and using Ribbon for load balancing
+# REST services using Netflix Feign and Ribbon
