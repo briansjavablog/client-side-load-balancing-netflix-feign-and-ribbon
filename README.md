@@ -1,1 +1,1 @@
-# eureka-service-discovery-and-ribbon-client-side-load-balancing
+# Building a REST client with Feign and using Ribbon for load balancing
