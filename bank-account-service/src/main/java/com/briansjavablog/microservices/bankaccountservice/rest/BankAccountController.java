@@ -21,7 +21,6 @@ public class BankAccountController {
 	@Autowired
 	public AccountIdentifierServiceClient accountIdentifierServiceClient; 
 	
-	
 	@PostMapping("/bank-account")
 	public ResponseEntity<AccountIdentifier> createBankAccount(@RequestBody BankAccount bankAccount) throws URISyntaxException {
 		

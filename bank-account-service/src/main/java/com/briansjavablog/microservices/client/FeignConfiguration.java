@@ -2,9 +2,10 @@ package com.briansjavablog.microservices.client;
 
 import org.springframework.context.annotation.Bean;
 
+import feign.Logger;
+import feign.Request;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import feign.RetryableException;
 import feign.Retryer;
 import feign.auth.BasicAuthRequestInterceptor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,49 +13,74 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class FeignConfiguration {
 
+	
+	/**
+	 * Logging levels are BASIC, FULL, HEADERS, NONE
+	 * 
+	 * @return
+	 */
+	@Bean
+	public Logger.Level configureLogLevel(){
+		return  Logger.Level.BASIC;
+	}
+	
+	/**
+	 * Request.Options allows you to configure the connection and 
+	 * read timeout values that will be used by the client for each 
+	 * request
+	 * 
+	 * @return Request.Options
+	 */
+	@Bean 
+	public Request.Options timeoutConfiguration(){
+		
+		return new Request.Options(5000, 30000);
+	}
+	
+	/**
+	 * Request interceptor adds HTTP header for basic auth
+	 * using the values supplied
+	 * 
+	 * @return
+	 */
 	@Bean
 	public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
 		
 		return new BasicAuthRequestInterceptor("user", "password");
 	}
 	
+	/**
+	 * An example of a custom RequestInterceptor. In this instance we 
+	 * add a custom header. This is a common enough use case for a 
+	 * request header 
+	 * 
+	 * @return RequestInterceptor
+	 */
 	@Bean
-	public RequestInterceptor requestLoggingInterceptor() {
+	public RequestInterceptor headerRequestInterceptor() {
 		
 		return new RequestInterceptor() {
 			
 			@Override
 			public void apply(RequestTemplate template) {
-				log.info("HTTP Method [{}], URL [{}], Headers [{}]", template.method(), template.url(), template.headers());
+				
+				log.info("Adding header [testHeader / testHeaderValue] to request");
+				template.header("testHeader", "testHeaderValue");
 			}
 		};
 	}
 	
+	/** 
+	 * Default Retryer will retry 5 times, backing off (exponentially) between retries.
+	 * You can provide your own retry logic by implementing the Retry interface if you need 
+	 * some specific behaviour. 
+	 * 
+	 * @return Retryer
+	 */
 	@Bean
 	public Retryer retryer() {
 		
-		/* return an instance of our custom retryer impl */
-		return new CustomRetryer();			
+		return new Retryer.Default(1000, 8000, 3);		
 	}	
-	
-	/**
-	 * Simple implementation of Retryer interface that logs the event
-	 * and simply throws the RetryableException. This is here to show how you 
-	 * could provide your own retry strategy if you wanted to
-	 */
-	public class CustomRetryer implements Retryer {
-		
-		@Override
-		public void continueOrPropagate(RetryableException re) {
-			
-			log.error("Retryable exception ocurred [{}] - will not retry request...", re.getMessage());
-			throw re;			
-		}
-		
-		 @Override
-	      public Retryer clone() {
-	        return this;
-	      }
-	}
 	
 }
