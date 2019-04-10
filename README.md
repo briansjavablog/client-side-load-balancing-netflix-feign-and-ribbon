@@ -1,1 +1,1 @@
-# eureka-service-discovery-and-ribbon-client-side-load-balancing
+# REST services using Netflix Feign and Ribbon
