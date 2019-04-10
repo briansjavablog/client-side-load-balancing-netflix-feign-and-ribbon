@@ -1,4 +1,4 @@
-package com.briansjavablog.microservices.client;
+package com.briansjavablog.microservices.bankaccount.client;
 
 import java.util.Arrays;
 import java.util.List;

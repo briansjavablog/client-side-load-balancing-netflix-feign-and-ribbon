@@ -1,4 +1,4 @@
-package com.briansjavablog.microservices.bankaccountservice.service;
+package com.briansjavablog.microservices.bankaccount.service;
 
 public class InvalidAccountBalanceException extends RuntimeException {
 

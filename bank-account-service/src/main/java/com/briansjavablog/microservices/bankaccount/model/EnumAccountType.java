@@ -1,4 +1,4 @@
-package com.briansjavablog.microservices.bankaccountservice.model;
+package com.briansjavablog.microservices.bankaccount.model;
 
 import java.util.Arrays;
 

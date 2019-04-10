@@ -1,4 +1,4 @@
-package com.briansjavablog.microservices.bankaccountservice.model;
+package com.briansjavablog.microservices.bankaccount.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

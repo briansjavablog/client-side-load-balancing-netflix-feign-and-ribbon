@@ -1,4 +1,4 @@
-package com.briansjavablog.microservices.bankaccountservice.rest;
+package com.briansjavablog.microservices.bankaccount.rest;
 
 import java.net.URISyntaxException;
 
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.briansjavablog.microservices.bankaccountservice.model.AccountIdentifier;
-import com.briansjavablog.microservices.bankaccountservice.model.BankAccount;
-import com.briansjavablog.microservices.client.AccountIdentifierServiceClient;
+import com.briansjavablog.microservices.bankaccount.client.AccountIdentifierServiceClient;
+import com.briansjavablog.microservices.bankaccount.model.AccountIdentifier;
+import com.briansjavablog.microservices.bankaccount.model.BankAccount;
 
 import lombok.extern.slf4j.Slf4j;
 

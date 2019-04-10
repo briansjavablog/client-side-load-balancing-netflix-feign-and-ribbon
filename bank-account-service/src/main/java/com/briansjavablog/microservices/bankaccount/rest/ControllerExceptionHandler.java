@@ -1,11 +1,11 @@
-package com.briansjavablog.microservices.bankaccountservice.rest;
+package com.briansjavablog.microservices.bankaccount.rest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.briansjavablog.microservices.bankaccountservice.service.InvalidAccountBalanceException;
+import com.briansjavablog.microservices.bankaccount.service.InvalidAccountBalanceException;
 
 import lombok.extern.slf4j.Slf4j;
 

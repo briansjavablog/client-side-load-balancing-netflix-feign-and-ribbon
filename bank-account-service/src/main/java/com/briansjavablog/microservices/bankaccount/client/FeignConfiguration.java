@@ -1,4 +1,4 @@
-package com.briansjavablog.microservices.client;
+package com.briansjavablog.microservices.bankaccount.client;
 
 import org.springframework.context.annotation.Bean;
 
